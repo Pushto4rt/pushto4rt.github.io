@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matthew for 6th Grade Class President</title>
+<meta name="description" content="Matthew is running for 6th grade class president. Voting is online until 6PM on September 18.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --vote-blue:#2440E8;
+    --deep:#0E1636;
+    --yellow:#FFD84D;
+    --paper:#FFFFFF;
+    --mist:#EDEFF9;
+    --line:#D3D8EE;
+    --display:"Bricolage Grotesque", system-ui, sans-serif;
+    --body:"Instrument Sans", system-ui, sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--deep);
+    font-family:var(--body);
+    font-size:1.0625rem;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{width:100%; max-width:680px; margin:0 auto; padding:0 24px;}
+  a{color:inherit;}
+  :focus-visible{outline:3px solid var(--yellow); outline-offset:3px;}
+
+  /* ---------- HERO ---------- */
+  .hero{background:var(--vote-blue); color:#fff; padding:64px 0 72px;}
+
+  .ballot{display:flex; align-items:center; gap:16px; margin-bottom:8px;}
+  .ballot svg{width:56px; height:56px; flex:0 0 auto;}
+  .ballot-note{font-size:.9375rem; font-weight:500; color:#C2CCFF;}
+
+  .hero h1{
+    font-family:var(--display); font-weight:800;
+    font-size:clamp(3.75rem, 18vw, 7rem);
+    line-height:.88; letter-spacing:-.03em; margin:0;
+  }
+
+  .hero .role{
+    font-family:var(--display); font-weight:700;
+    font-size:clamp(1.25rem, 5.5vw, 1.75rem);
+    line-height:1.15; letter-spacing:-.01em;
+    margin:18px 0 0; color:var(--yellow);
+  }
+
+  .hero .pitch{max-width:26em; margin:20px 0 0; color:#DDE3FF;}
+
+  .vote-strip{
+    display:inline-block; margin-top:26px;
+    background:rgba(255,255,255,.12);
+    border:1.5px solid rgba(255,255,255,.35);
+    border-radius:14px; padding:12px 18px;
+    font-size:.9375rem; font-weight:600; color:#fff;
+  }
+
+  .hero-actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:26px;}
+
+  .btn{
+    display:inline-block; font-family:var(--body);
+    font-size:1rem; font-weight:600; text-decoration:none;
+    padding:14px 22px; border-radius:999px;
+    border:2px solid transparent; cursor:pointer;
+  }
+  .btn-solid{background:var(--yellow); color:var(--deep);}
+  .btn-ghost{border-color:rgba(255,255,255,.45); color:#fff; background:transparent;}
+  .btn-solid:hover{background:#FFE27A;}
+  .btn-ghost:hover{border-color:#fff;}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:64px 0;}
+
+  h2{
+    font-family:var(--display); font-weight:800;
+    font-size:clamp(1.75rem, 7vw, 2.5rem);
+    line-height:1.05; letter-spacing:-.02em; margin:0 0 28px;
+  }
+
+  h3{font-family:var(--display); font-weight:700; font-size:1.25rem; line-height:1.25; margin:0 0 6px;}
+  p{margin:0 0 16px;}
+  p:last-child{margin-bottom:0;}
+
+  .promise{display:flex; gap:16px; padding:24px 0; border-top:1px solid var(--line);}
+  .promise:last-of-type{border-bottom:1px solid var(--line);}
+  .promise p{color:#434C74;}
+  .tick{flex:0 0 auto; width:26px; height:26px; margin-top:4px; color:var(--vote-blue);}
+
+  .about{background:var(--mist);}
+  .about .wrap > p{max-width:34em; color:#3B4470;}
+
+  .about-inner{display:flex; gap:32px; align-items:flex-start; flex-wrap:wrap;}
+  .about-photo{
+    flex:0 0 auto;
+    width:200px;
+    border-radius:20px;
+    overflow:hidden;
+    border:4px solid var(--vote-blue);
+    box-shadow:6px 6px 0 var(--yellow);
+  }
+  .about-photo img{display:block; width:100%; height:auto;}
+  .about-text{flex:1 1 260px;}
+  .about-text p{max-width:34em; color:#3B4470;}
+
+  .kicker{
+    font-family:var(--display); font-weight:800;
+    font-size:clamp(1.5rem, 6vw, 2rem);
+    letter-spacing:-.02em; color:var(--vote-blue);
+    margin-top:24px;
+  }
+
+  .ask-intro{max-width:32em; color:#434C74;}
+  .qa{margin-top:36px;}
+  .qa-item{padding:22px 0; border-top:1px solid var(--line);}
+  .qa-item:last-child{border-bottom:1px solid var(--line);}
+  .qa-q{font-family:var(--display); font-weight:700; font-size:1.0625rem; margin:0 0 8px;}
+  .qa-a{margin:0; color:#434C74; padding-left:16px; border-left:3px solid var(--yellow);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--deep); color:#fff; padding:56px 0 140px; text-align:center;}
+  footer .big{
+    font-family:var(--display); font-weight:800;
+    font-size:clamp(1.5rem, 6vw, 2.25rem);
+    line-height:1.1; letter-spacing:-.02em; margin:0 0 10px;
+  }
+  footer .small{color:#98A2D0; font-size:.9375rem; margin:0;}
+
+  /* ---------- LAUNCH BUTTONS ---------- */
+  .launch{
+    position:fixed; bottom:20px; z-index:50;
+    color:#fff; border:none; border-radius:999px;
+    padding:15px 22px; font-family:var(--body);
+    font-size:.9375rem; font-weight:600; cursor:pointer;
+  }
+  .launch-ask{right:20px; background:var(--vote-blue); box-shadow:0 10px 30px rgba(36,64,232,.35);}
+  .launch-sugg{left:20px; background:var(--deep); box-shadow:0 10px 30px rgba(14,22,54,.3);}
+  .launch-ask:hover{background:#1B34C8;}
+  .launch-sugg:hover{background:#1C2750;}
+
+  /* ---------- PANELS ---------- */
+  .panel{
+    position:fixed; bottom:20px; z-index:60;
+    width:min(370px, calc(100vw - 40px));
+    background:#fff; border:2px solid var(--deep);
+    border-radius:20px; padding:22px; display:none;
+    box-shadow:0 20px 50px rgba(14,22,54,.28);
+    max-height:calc(100vh - 40px); overflow-y:auto;
+  }
+  .panel.open{display:block;}
+  #askPanel{right:20px;}
+  #suggPanel{left:20px;}
+
+  @media (max-width:440px){
+    #suggPanel, #askPanel{left:20px; right:20px; width:auto;}
+    .launch{padding:13px 16px; font-size:.875rem; bottom:16px;}
+    .launch-sugg{left:14px;}
+    .launch-ask{right:14px;}
+  }
+
+  .panel-head{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:6px;}
+  .panel-head h3{margin:0;}
+  .panel-close{background:none; border:none; font-size:1.5rem; line-height:1; cursor:pointer; color:#6B74A0; padding:0 4px;}
+  .panel p.hint{font-size:.875rem; color:#5A6392; margin:0 0 14px;}
+  .panel label{display:block; font-size:.875rem; font-weight:600; margin-bottom:6px;}
+
+  .panel input, .panel textarea{
+    width:100%; font-family:var(--body); font-size:1rem;
+    padding:11px 13px; border:1.5px solid var(--line);
+    border-radius:12px; margin-bottom:14px;
+    background:#FBFCFF; color:var(--deep);
+  }
+  .panel textarea{min-height:96px; resize:vertical;}
+  .panel input:focus, .panel textarea:focus{border-color:var(--vote-blue);}
+
+  .panel .send{width:100%; background:var(--vote-blue); color:#fff;}
+  .panel .send:hover{background:#1B34C8;}
+  #suggPanel .send{background:var(--deep);}
+  #suggPanel .send:hover{background:#1C2750;}
+
+  .panel-msg{
+    margin-top:14px; font-size:.875rem;
+    padding:12px 14px; border-radius:12px;
+    background:var(--mist); color:#2C3564; display:none;
+  }
+  .panel-msg.show{display:block;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important; animation:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+
+    <div class="ballot">
+      <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <rect x="5" y="5" width="54" height="54" rx="8" stroke="#FFD84D" stroke-width="4"/>
+        <path d="M17 33 L28 45 L48 18" stroke="#FFD84D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="ballot-note">Your ballot, 6th grade</span>
+    </div>
+
+    <h1>Matthew</h1>
+    <p class="role">for class president</p>
+
+    <!-- EDIT ME: your one-sentence pitch -->
+    <p class="pitch">Tell me what's bugging you about this school and I'll actually go ask about it. That's the whole job.</p>
+
+    <p class="vote-strip">Voting is online &mdash; open until 6PM, Friday September 18</p>
+
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="#ideas">See what I'll do</a>
+      <button class="btn btn-ghost" data-open="askPanel">Ask me a question</button>
+    </div>
+
+  </div>
+</header>
+
+<!-- ============ IDEAS ============ -->
+<section id="ideas">
+  <div class="wrap">
+    <h2>Three things I'll work on</h2>
+
+    <div class="promise">
+      <svg class="tick" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <h3>Shorter lunch lines</h3>
+        <p>We lose half of lunch standing in line. I want to find out where the jam actually is &mdash; more windows open, a better way to line up, whatever it takes &mdash; and bring it to the people who can change it.</p>
+      </div>
+    </div>
+
+    <div class="promise">
+      <svg class="tick" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <h3>Morning music requests</h3>
+        <p>You send in a song, and school-appropriate picks get played in the morning. Waking up for first period is easier when it's a song somebody in your grade asked for.</p>
+      </div>
+    </div>
+
+    <div class="promise">
+      <svg class="tick" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 12.5 L9.5 18 L20 6" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <h3>And the one you've all been waiting for...</h3>
+        <p>Drum roll please... my final goal is a fundraiser to put on a school treasure hunt event, with lots of prizes. I can't promise it happens overnight, but I will try my hardest to make it real.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about">
+  <div class="wrap">
+    <h2>Who I am</h2>
+    <div class="about-inner">
+      <div class="about-photo">
+        <img src="matthew.png" alt="Matthew, candidate for 6th grade class president">
+      </div>
+      <div class="about-text">
+        <p>My name is Matthew and I'm running for class president. I know that starting middle school is tough for most of us, so I want to know your worries and your problems. I'll try my best to make the school year as fun and easy as possible!</p>
+        <p class="kicker">Let's have fun!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ASK ============ -->
+<section id="ask">
+  <div class="wrap">
+    <h2>Ask me anything</h2>
+    <p class="ask-intro">Use the buttons at the bottom of the screen. Questions go on the right, suggestions go on the left. I post answers here so everyone can read them, not just the person who asked.</p>
+
+    <div class="qa">
+      <!-- EDIT ME: paste real questions and your answers here as they come in -->
+      <div class="qa-item">
+        <p class="qa-q">What if you win and then don't do any of this?</p>
+        <p class="qa-a">Fair question. Everything I said I'd work on is written on this page. If I drop one, you can point at it.</p>
+      </div>
+
+      <div class="qa-item">
+        <p class="qa-q">Can I request any song I want?</p>
+        <p class="qa-a">Any song that's school-appropriate. If it gets turned down I'll tell you it got turned down instead of just ignoring it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <p class="big">Voting closes 6PM, September 18</p>
+    <p class="small">It's online &mdash; you can vote from your phone. Made by Matthew.</p>
+  </div>
+</footer>
+
+<!-- ============ BUTTONS ============ -->
+<button class="launch launch-sugg" data-open="suggPanel">Make a suggestion</button>
+<button class="launch launch-ask" data-open="askPanel">Ask a question</button>
+
+<!-- ============ ASK PANEL ============ -->
+<div class="panel" id="askPanel" role="dialog" aria-label="Ask Matthew a question">
+  <div class="panel-head">
+    <h3>Ask me a question</h3>
+    <button class="panel-close" data-close aria-label="Close">&times;</button>
+  </div>
+  <p class="hint">Goes straight to me. I'll post the answer on this page.</p>
+
+  <p class="hint" style="margin-top:0">Tapping the button below opens a quick Google Form — fill it in and I'll get your question right away.</p>
+  <a href="https://forms.gle/qkQHpoiJFcbh67b78" target="_blank" rel="noopener" class="btn send" style="display:block;text-align:center;text-decoration:none;padding:14px 22px;">Open question form</a>
+</div>
+
+<!-- ============ SUGGESTION PANEL ============ -->
+<div class="panel" id="suggPanel" role="dialog" aria-label="Make a suggestion to Matthew">
+  <div class="panel-head">
+    <h3>Make a suggestion</h3>
+    <button class="panel-close" data-close aria-label="Close">&times;</button>
+  </div>
+  <p class="hint">An idea, a song for the morning, or something that needs fixing.</p>
+
+  <p class="hint" style="margin-top:0">Tapping the button below opens a quick Google Form — fill it in and I'll get your suggestion right away.</p>
+  <a href="https://forms.gle/qkQHpoiJFcbh67b78" target="_blank" rel="noopener" class="btn send" style="display:block;text-align:center;text-decoration:none;padding:14px 22px;">Open suggestion form</a>
+</div>
+
+<script>
+  var launches = document.querySelectorAll('.launch');
+
+  function openPanel(id){
+    closeAll();
+    var p = document.getElementById(id);
+    p.classList.add('open');
+    launches.forEach(function(b){ b.style.display = 'none'; });
+    p.querySelector('textarea').focus();
+  }
+
+  function closeAll(){
+    document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('open'); });
+    launches.forEach(function(b){ b.style.display = ''; });
+  }
+
+  document.querySelectorAll('[data-open]').forEach(function(b){
+    b.addEventListener('click', function(){ openPanel(b.getAttribute('data-open')); });
+  });
+
+  document.querySelectorAll('[data-close]').forEach(function(b){
+    b.addEventListener('click', closeAll);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeAll();
+  });
+
+  // Until the forms are connected, don't pretend anything was sent.
+  document.querySelectorAll('.panel form').forEach(function(f){
+    f.addEventListener('submit', function(e){
+      if (f.getAttribute('action').indexOf('YOUR_FORM_ID') !== -1){
+        e.preventDefault();
+        var msg = f.parentNode.querySelector('.panel-msg');
+        msg.textContent = 'Not connected yet \u2014 Matthew still needs to finish step 4.';
+        msg.classList.add('show');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
