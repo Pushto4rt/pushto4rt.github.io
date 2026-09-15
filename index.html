@@ -103,6 +103,19 @@
   .about{background:var(--mist);}
   .about .wrap > p{max-width:34em; color:#3B4470;}
 
+  .about-inner{display:flex; gap:32px; align-items:flex-start; flex-wrap:wrap;}
+  .about-photo{
+    flex:0 0 auto;
+    width:200px;
+    border-radius:20px;
+    overflow:hidden;
+    border:4px solid var(--vote-blue);
+    box-shadow:6px 6px 0 var(--yellow);
+  }
+  .about-photo img{display:block; width:100%; height:auto;}
+  .about-text{flex:1 1 260px;}
+  .about-text p{max-width:34em; color:#3B4470;}
+
   .kicker{
     font-family:var(--display); font-weight:800;
     font-size:clamp(1.5rem, 6vw, 2rem);
@@ -263,8 +276,15 @@
 <section class="about">
   <div class="wrap">
     <h2>Who I am</h2>
-    <p>My name is Matthew and I'm running for class president. I know that starting middle school is tough for most of us, so I want to know your worries and your problems. I'll try my best to make the school year as fun and easy as possible!</p>
-    <p class="kicker">Let's have fun!</p>
+    <div class="about-inner">
+      <div class="about-photo">
+        <img src="matthew.png" alt="Matthew, candidate for 6th grade class president">
+      </div>
+      <div class="about-text">
+        <p>My name is Matthew and I'm running for class president. I know that starting middle school is tough for most of us, so I want to know your worries and your problems. I'll try my best to make the school year as fun and easy as possible!</p>
+        <p class="kicker">Let's have fun!</p>
+      </div>
+    </div>
   </div>
 </section>
 
